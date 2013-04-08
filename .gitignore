@@ -17,3 +17,6 @@
 .DS_Store
 *.DS_Store
 .sass-cache
+
+config/database.yml
+Gemfile.lock
