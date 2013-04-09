@@ -6,7 +6,14 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
       user.oauth_token = auth["credentials"]["token"]
-      user.oauth_token_secret = auth["credentials"]["token"] 
+      user.oauth_token_secret = auth["credentials"]["secret"] 
     end
+  end
+
+  def auth
+  	Twitter::Client.new(
+  		:oauth_token => self.oauth_token,
+  		:oauth_token_secret => self.oauth_token_secret
+	)
   end
 end

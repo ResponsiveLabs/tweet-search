@@ -1,5 +1,5 @@
-Bienvenido
-
- <p class="flash-notice"><%= flash[:notice] %></p>
-
-<%= link_to "Sign in with Twitter", "/auth/twitter?use_authorize=true" %>
+<% unless current_user %>
+    Ingresa con twitter: <%= link_to "Sign in with Twitter", "/auth/twitter?use_authorize=true" %>
+<% else %>
+    Usuario: <%= current_user.name %> | <%= link_to "Sign Out", signout_path %>
+<% end %>
