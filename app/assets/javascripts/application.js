@@ -12,11 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
-//= require backbone
-//= require backbone_rails_sync
-//= require backbone_datalink
-//= require backbone/tweet_search
 //= require_tree .
 
 function get_results_by(word){
