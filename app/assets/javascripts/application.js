@@ -15,3 +15,22 @@
 //= require_tree .
 
 // $(document).foundation();
+
+function get_results_by(word){
+		$(function() {
+				$('#results').empty();
+				callback = function(data) {
+					return $.each(data.statuses, function(key, val) {
+						return $('#results').append("<div class='tweet'><div class='user_image'><img src='" + val["user"]["profile_image_url"] + "'> <strong> " + val["user"]["name"] + "</strong> @" + val["user"]["screen_name"] + "</div>" + "<div class='tweet_text'>" + val["text"] + "<a onclick='save_tweet("+val+")'; return false; > save </a></div></div>");
+					});
+				};
+				return $.get('/search_tweet?word=', {
+					word: word
+				}, callback, 'json');
+			});
+
+}
+
+function save_tweet([data]){
+	alert(data["text"]);
+}
