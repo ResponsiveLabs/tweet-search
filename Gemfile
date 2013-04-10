@@ -13,6 +13,9 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
   gem 'uglifier', '>= 1.0.3'
+  gem 'zurb-foundation', '~> 4.1.2'
+  gem 'foundation-icons-sass-rails'
+  gem 'modular-scale', '~> 1.0.6'
 end
 
 group :development do
