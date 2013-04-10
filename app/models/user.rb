@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :uid, :oauth_token ,:oauth_token_secret
+  has_many :user_tweets
 
   def self.create_with_omniauth(auth)
     create! do |user|

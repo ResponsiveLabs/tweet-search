@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+
+.tweet{
+	width: 310px;
+	background-color: #ffffaa;
+	border: solid 3px #000000;
+	padding: 10px
+}
+
