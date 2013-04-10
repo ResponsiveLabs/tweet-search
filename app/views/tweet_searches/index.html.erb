@@ -1,7 +1,17 @@
-<h1>TweetSearches#index</h1>
-<p>Buscar: <%= text_field_tag 'search' %> <%= submit_tag "Buscar", :id => "search_button" %>
+<h1>Busqueda twitter</h1>
+<p>Buscar: <%= text_field_tag 'search' %> <%= button_tag "Buscar", :id => "search_button" %> <%= button_tag "Guardar busqueda", :id => "search_save_button" %>
 </p>
 
-<div id="results">
 
+<div id="words_saved">
+	<ul class="tweets_list">
+	<% current_user.user_tweets.order('id desc').each do |search_saved| %>
+		<li><%= link_to_function search_saved.word, "get_results_by('#{search_saved.word}')" %></li>
+	<% end %>
+	</ul>
 </div>
+
+
+	<div id="results">
+	</div>
+

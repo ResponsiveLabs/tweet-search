@@ -1,6 +1,12 @@
 TweetSearch::Application.routes.draw do
+  resources :posts
+
+  resources :tweets
   get "welcome/index"
   match "/search_tweet" => "tweet_searches#index"
+  match "/search_tweet/save" => "tweet_searches#save_search"
+  match "/search_tweet/saved_tweets" => "tweet_searches#tweets_saved"
+
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
 

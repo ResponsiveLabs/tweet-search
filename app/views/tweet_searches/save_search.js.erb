@@ -1,0 +1,11 @@
+$.getJSON('/search_tweet/saved_tweets.json', function(data) {
+var items = [];
+$('#words_saved').empty();
+$.each(data, function(key, val) {
+	items.unshift('<li id="' + key + '"> <a onclick=get_results_by("'+ val["word"] +'"); return false;>'+ val["word"] +'</a></li>');
+});
+$('<ul/>', {
+'class': 'tweets_list',
+html: items.join('')
+}).appendTo('#words_saved');
+});
