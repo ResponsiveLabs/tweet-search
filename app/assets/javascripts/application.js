@@ -19,9 +19,11 @@
 function get_results_by(word){
 		$(function() {
 				$('#results').empty();
+				$('input#active_word').val(word);
+				
 				callback = function(data) {
 					return $.each(data.statuses, function(key, val) {
-						return $('#results').append("<div class='tweet'><div class='user_image'><img src='" + val["user"]["profile_image_url"] + "'> <strong> " + val["user"]["name"] + "</strong> @" + val["user"]["screen_name"] + "</div>" + "<div class='tweet_text'>" + val["text"] + "<a onclick='save_tweet("+val+")'; return false; > save </a></div></div>");
+						return $('#results').append("<div class='tweet'><div class='user_image'><img src='" + val["user"]["profile_image_url"] + "'> <strong> " + val["user"]["name"] + "</strong> @" + val["user"]["screen_name"] + "</div>" + "<div class='tweet_text'>" + val['text'] + "<a onclick=save_tweet('" + val['id_str'] + "');> save </a></div></div>");
 					});
 				};
 				return $.get('/search_tweet?word=', {
@@ -31,6 +33,23 @@ function get_results_by(word){
 
 }
 
-function save_tweet([data]){
-	alert(data["text"]);
+
+function save_tweet(tweet_id){
+active_word = $('input#active_word').val();
+$.get('/search_tweet/tweet?tweet_id='+tweet_id+'&active_search='+active_word,
+   function(data) {
+	 if (data["status"] == 1){
+   		alert("El tweet ya fue guardado en esta búsqueda");
+   	  }
+   	 else{
+     $('#tweets_saved').append("<div class='tweet' id ='"+ data['id']+"'><div class='user_image'><img src='" + data["profile_image_url"] + "'> <strong> " + data["user_name"] + "</strong> @" + data["user_screen_name"] + "</div>" + "<div class='tweet_text'>" + data['tweet_text'] + "<a onclick=delete_tweet('"+data['id']+"');> Eliminar </a></div></div>");
+   	 }
+   	}, "json");
+}
+
+function delete_tweet(tweet_id){
+$.get('/search_tweet/tweet/delete?tweet_saved_id='+tweet_id,
+   function(data) {
+     $('.tweet#'+tweet_id).remove();
+   }, "json");
 }

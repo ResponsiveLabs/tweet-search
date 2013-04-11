@@ -2,6 +2,7 @@
 <p>Buscar: <%= text_field_tag 'search' %> <%= button_tag "Buscar", :id => "search_button" %> <%= button_tag "Guardar busqueda", :id => "search_save_button" %>
 </p>
 
+<%= hidden_field_tag "active_word" %>
 
 <div id="words_saved">
 	<ul class="tweets_list">
@@ -14,4 +15,9 @@
 
 	<div id="results">
 	</div>
+
+	<div id="tweets_saved">
+	</div>
+
+
 
