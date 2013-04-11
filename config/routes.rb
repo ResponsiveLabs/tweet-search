@@ -7,6 +7,8 @@ TweetSearch::Application.routes.draw do
   match "/search_tweet/save" => "tweet_searches#save_search"
   match "/search_tweet/saved_tweets" => "tweet_searches#tweets_saved"
   match "/search_tweet/tweet" => "tweet_searches#tweet"
+  match "/search_tweet/tweet/delete" => "tweet_searches#delete_tweet"
+
 
 
   match "/auth/:provider/callback" => "sessions#create"
