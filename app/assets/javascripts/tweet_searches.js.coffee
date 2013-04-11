@@ -14,7 +14,7 @@ $ ->
     		"<a onclick=save_tweet('"+val['id_str']+"')>save</a></div>" 
     	)
     	)
-    $.get '/search_tweet?word=', {word}, callback, 'json'
+    $.get '/search_tweet?word='+word, callback, 'json'
 
   $('#search_save_button').click ->
     word = $('input#search').val()
