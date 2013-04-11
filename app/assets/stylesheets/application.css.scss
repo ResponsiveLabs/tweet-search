@@ -1,1 +1,49 @@
 @import "base";
+
+.login-box {
+  width: 780px;
+//  height: 200px;
+  background-color: #f6f6f6;
+  margin: 100px auto 0;
+  padding: 60px;
+  border: 1px solid #e2e2e6;
+  @include border-radius(6px, 6px);
+//  @include box-shadow(rgba(0, 0, 0, 0.3) 0 0 50px);
+
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+  
+  h1 {
+    color: rgb(137, 96, 167);
+    margin-bottom: 9px;
+    font-size: 60px;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  
+  .twitter-login-btn {
+    width: 400px;
+    display: block;
+    position: relative;
+    text-align: center;
+    margin: 60px auto 0;
+    padding: 13px 18px 15px;
+    
+    background-image: none;
+    border-color: #8960a7;
+    background-color: #8960a7;
+    color: #ffffff;
+    @include border-radius(6px, 6px);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset;
+    
+    i {
+      font-size: 20px;
+      margin: 0 0 0 20px;
+      line-height: 20px;
+    }
+  }
+}

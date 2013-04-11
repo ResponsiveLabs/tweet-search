@@ -1,5 +1,11 @@
-<% unless current_user %>
-    Ingresa con twitter: <%= link_to "Sign in with Twitter", "/auth/twitter?use_authorize=true" %>
-<% else %>
-    Usuario: <%= current_user.name %> | <%= link_to "Sign Out", signout_path %>
-<% end %>
+<div class="login-box">
+  <% unless current_user %>
+      <h1>Sing in with Twitter</h1> 
+      
+      <%= link_to "/auth/twitter?use_authorize=true", :class => "twitter-login-btn" do %>
+        Sign in <i class="social foundicon-twitter"></i>
+      <% end %>
+  <% else %>
+      Usuario: <%= current_user.name %> | <%= link_to "Sign Out", signout_path %>
+  <% end %>
+</div>
