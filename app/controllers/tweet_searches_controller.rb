@@ -10,11 +10,22 @@ class TweetSearchesController < ApplicationController
     end
   end
 
-
   def tweets_saved
     @saved_tweets = current_user.user_tweets
     respond_to do |format|
       format.json { render json: @saved_tweets }
+    end
+  end
+
+  def tweet
+    @tweet = current_user.auth.status(params[:tweet_id])
+    @user_tweet_saved = UserTweet.find_by_word_and_user_id(params[:active_search],current_user.id)
+    @user_tweet_id = @user_tweet_saved.nil? ? 100 : @user_tweet_saved.id
+    @saved_tweet = SavedTweet.new(:user_tweet_id => @user_tweet_id, :tweet_id => @tweet.id, :tweet_text => @tweet.text, 
+      :profile_image_url => @tweet.profile_image_url, :user_name => @tweet.user.name, :user_screen_name => @tweet.user.screen_name ).save
+
+    respond_to do |format|
+      format.json { render json: @tweet }
     end
   end
 

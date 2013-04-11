@@ -4,13 +4,14 @@
 $ ->
   $('#search_button').click ->
     word = $('input#search').val()
+    $('input#active_word').val(word);
     $('#results').empty()
     callback = (data) -> $.each(data.statuses, (key, val) ->
     	$('#results').append(
     		"<div class='tweet'><div class='user_image'><img src='" + val["user"]["profile_image_url"] + "'> <strong> " + val["user"]["name"] + "</strong> @"+val["user"]["screen_name"]+"</div>" +
     			"<div class='tweet_text'>" + 
     			val["text"] + "</div>" +
-    		"<a onclick='save_tweet("+val+")'; return false; >save</a></div>" 
+    		"<a onclick=save_tweet('"+val['id_str']+"')>save</a></div>" 
     	)
     	)
     $.get '/search_tweet?word=', {word}, callback, 'json'

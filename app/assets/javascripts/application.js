@@ -17,9 +17,11 @@
 function get_results_by(word){
 		$(function() {
 				$('#results').empty();
+				$('input#active_word').val(word);
+				
 				callback = function(data) {
 					return $.each(data.statuses, function(key, val) {
-						return $('#results').append("<div class='tweet'><div class='user_image'><img src='" + val["user"]["profile_image_url"] + "'> <strong> " + val["user"]["name"] + "</strong> @" + val["user"]["screen_name"] + "</div>" + "<div class='tweet_text'>" + val["text"] + "<a onclick='save_tweet("+val+")'; return false; > save </a></div></div>");
+						return $('#results').append("<div class='tweet'><div class='user_image'><img src='" + val["user"]["profile_image_url"] + "'> <strong> " + val["user"]["name"] + "</strong> @" + val["user"]["screen_name"] + "</div>" + "<div class='tweet_text'>" + val['text'] + "<a onclick=save_tweet('" + val['id_str'] + "');> save </a></div></div>");
 					});
 				};
 				return $.get('/search_tweet?word=', {
@@ -29,6 +31,11 @@ function get_results_by(word){
 
 }
 
-function save_tweet([data]){
-	alert(data["text"]);
+
+function save_tweet(tweet_id){
+active_word = $('input#active_word').val();
+$.get('/search_tweet/tweet?tweet_id='+tweet_id+'&active_search='+active_word,
+   function(data) {
+     $('#tweets_saved').append("<div class='tweet'><div class='user_image'><img src='" + data["user"]["profile_image_url"] + "'> <strong> " + data["user"]["name"] + "</strong> @" + data["user"]["screen_name"] + "</div>" + "<div class='tweet_text'>" + data['text'] + "<a onclick=save_tweet('" + data['id_str'] + "');> save </a></div></div>");
+   }, "json");
 }

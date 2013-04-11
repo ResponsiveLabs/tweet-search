@@ -2,7 +2,7 @@ class CreateSavedTweets < ActiveRecord::Migration
   def change
     create_table :saved_tweets do |t|
       t.references :user_tweet
-      t.integer :tweet_id
+      t.string :tweet_id
       t.string :tweet_text
       t.string :profile_image_url
       t.string :user_name

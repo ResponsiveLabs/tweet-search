@@ -2,6 +2,7 @@
 <p>Buscar: <%= text_field_tag 'search' %> <%= button_tag "Buscar", :id => "search_button" %> <%= button_tag "Guardar busqueda", :id => "search_save_button" %>
 </p>
 
+<%= hidden_field_tag "active_word" %>
 
 <div id="words_saved">
 	<ul class="tweets_list">
@@ -11,7 +12,16 @@
 	</ul>
 </div>
 
+<%= current_user.auth.status("321771654827102209").inspect %>
+valor = <%= current_user.auth.status("321771654827102209").profile_image_url %>
+
+
 
 	<div id="results">
 	</div>
+
+	<div id="tweets_saved">
+	</div>
+
+
 
