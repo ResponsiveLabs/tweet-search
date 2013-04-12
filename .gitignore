@@ -14,7 +14,6 @@ tmp/*
 public/uploads/*
 .idea
 .bundle/environment.rb
-Gemfile.lock
 .bundle
 log/*
 *.rbc

@@ -10,11 +10,23 @@ class TweetSearchesController < ApplicationController
     end
   end
 
-  def tweets_saved
-    @saved_tweets = current_user.user_tweets
+  def searches_saved
+    @searches_saved = current_user.user_tweets
     respond_to do |format|
-      format.json { render json: @saved_tweets }
+      format.json { render json: @searches_saved }
     end
+  end
+
+  def tweets_saved
+    @search_saved = UserTweet.find_by_word_and_user_id(params[:active_search],current_user.id)
+    @tweets_saved = SavedTweet.find_all_by_user_tweet_id(@search_saved.id) if @search_saved
+    respond_to do |format|
+    if @search_saved
+      format.json { render json: @tweets_saved }
+    else
+      format.json { render json: { status: "1"}}
+    end
+  end
   end
 
   def tweet
@@ -31,6 +43,11 @@ class TweetSearchesController < ApplicationController
         format.json { render json: { status: "1"} }
       end
     end
+  end
+
+  def reply_tweet
+    current_user.auth.update("#{params[:msg]}", {"in_reply_to_status_id" => params[:tweet_id]})
+    render json: { reply: "ok"} 
   end
 
   def search
