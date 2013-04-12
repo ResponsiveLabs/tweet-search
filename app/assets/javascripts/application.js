@@ -23,7 +23,7 @@ function get_results_by(word){
 		
 		callback = function(data) {
 			return $.each(data.statuses, function(key, val) {
-				return $('#results').append("<div class='tweet'><div class='user_image'><img src='" + val["user"]["profile_image_url"] + "'> <strong> " + val["user"]["name"] + "</strong> @" + val["user"]["screen_name"] + "</div>" + "<div class='tweet_text'>" + val['text'] + "<a onclick=reply_tweet_show('"+ val['id_str'] +"');> Reply </a> | <a onclick=save_tweet('" + val['id_str'] + "');> save </a></div><div class='reply_tweet_input' id="+val['id_str']+"><textarea class='reply_textarea' id="+val['id_str'] +">@"+ val["user"]["screen_name"] +"</textarea><button class='reply_button' type='submit' onclick=send_reply('"+val['id_str'] +"');>Responder</button></div></div>");
+				return $('#results').append("<div class='tweet'><div class='user_image large-2 columns small-3'><img src='" + val["user"]["profile_image_url"] + "'></div> <div class='large-10 columns'> <strong> " + val["user"]["name"] + "</strong> <small>@" + val["user"]["screen_name"] + "</small>" + "<div class='tweet_text'>" + val['text'] + "<ul class='inline-list'><li><a onclick=reply_tweet_show('"+ val['id_str'] +"');> Reply </a></li> <li><a onclick=save_tweet('" + val['id_str'] + "');> save </a></li></ul></div><div class='reply_tweet_input' id="+val['id_str']+"><textarea class='reply_textarea' id="+val['id_str'] +">@"+ val["user"]["screen_name"] +"</textarea><button class='reply_button' type='submit' onclick=send_reply('"+val['id_str'] +"');>Responder</button></div></div>");
 			});
 		};
 		$.get('/search_tweet', {word: word}, callback, 'json'); 
