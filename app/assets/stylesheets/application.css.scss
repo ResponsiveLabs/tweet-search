@@ -151,3 +151,24 @@ button[type=submit].save-search {
 .reply_tweet_input{
   display: none;
 }
+
+ul.tweets_list {
+  margin: 0;
+  
+  li {
+    margin-bottom: 10px;
+    
+    a {
+      display: block;
+      width: 208px;
+      height: 25px;
+      background-color: $white;
+      padding: 0 0 0 10px;
+      @include border-radius(6px, 6px);
+      
+      &:hover {
+        color: $darkGreen;
+      }
+    }
+  }
+}
