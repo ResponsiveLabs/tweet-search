@@ -49,7 +49,7 @@ function save_tweet(tweet_id){
 function delete_tweet(tweet_id){
 	$.get('/search_tweet/tweet/delete?tweet_saved_id='+tweet_id,
 		function(data) {
-			$('.tweet#'+tweet_id).remove();
+			$('.tweet #'+tweet_id).remove();
 		}, "json");
 }
 
