@@ -8,8 +8,8 @@
 	<ul class="tweets_list">
 	<% current_user.user_tweets.order('id desc').each do |search_saved| %>
 		<li id="<%= search_saved.id %>">
-			<%= link_to_function " x ", "remove_search_saved('#{search_saved.id}')" %>
 			<%= link_to_function search_saved.word, "get_results_by('#{search_saved.word}')" %>
+			<%= link_to_function " x ", "remove_search_saved('#{search_saved.id}')", :class => "delete" %>
 		</li>
 	<% end %>
 	</ul>
