@@ -73,5 +73,18 @@ class TweetSearchesController < ApplicationController
     end
   end
 
+  def delete_search
+    @search_saved = UserTweet.find_by_id_and_user_id(params[:search_id],current_user.id)
+    
+    respond_to do |format|
+      if @search_saved.delete
+        SavedTweet.where(:user_tweet_id => @search_saved.id).delete_all
+        format.js
+      else
+        format.js {render :content_type => 'text/javascript'}
+      end
+    end
+  end
+
 
 end

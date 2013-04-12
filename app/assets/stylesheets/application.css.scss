@@ -180,6 +180,8 @@ ul.tweets_list {
   margin: 0;
   
   li {
+    display: block;
+    position: relative;
     margin-bottom: 10px;
     
     a {
@@ -195,6 +197,25 @@ ul.tweets_list {
         background-color: $outlineGrey;
       }
     }
+    
+    a.delete {
+      width: 20px;
+      height: 20px;
+      display: block;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      background: $bgGrey;
+      color: $lightRed;
+      line-height: 18px;
+      padding: 0 0 0 6px;
+      
+      &:hover {
+        color: $wineRed;
+        background: $outlineGrey;
+      }
+    }
+    
   }
 }
 
