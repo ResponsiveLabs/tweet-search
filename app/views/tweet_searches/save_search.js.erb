@@ -1,8 +1,8 @@
-$.getJSON('/search_tweet/saved_tweets.json', function(data) {
+$.getJSON('/search_tweet/searches_saved.json', function(data) {
 var items = [];
 $('#words_saved').empty();
 $.each(data, function(key, val) {
-	items.unshift('<li id="' + key + '"> <a onclick=get_results_by("'+ val["word"] +'"); return false;>'+ val["word"] +'</a></li>');
+	items.unshift('<li id="' + key + '"> <a onclick=get_results_by("'+ val["word"] +'");>'+ val["word"] +'</a></li>');
 });
 $('<ul/>', {
 'class': 'tweets_list',
