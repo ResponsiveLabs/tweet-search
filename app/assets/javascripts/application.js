@@ -99,7 +99,7 @@ function get_searches_saved(){
 		var items = [];
 		$('#words_saved').empty();
 		$.each(data, function(key, val) {
-			items.unshift('<li id="' + val["id"] + '"> <a onclick="remove_search_saved('+ val["id"] +'); return false;" href="#"> x </a> <a onclick=get_results_by("'+ val["word"] +'");>'+ val["word"] +'</a></li>');
+			items.unshift('<li id="' + val["id"] + '"><a onclick=get_results_by("'+ val["word"] +'");>'+ val["word"] +'</a> <a class="delete" onclick="remove_search_saved('+ val["id"] +'); return false;" href="#"> x </a> </li>');
 		});
 		$('<ul/>', {
 			'class': 'tweets_list',
