@@ -1,4 +1,4 @@
-<h1>Busqueda twitter</h1>
+<!--<h1>Busqueda twitter</h1>
 <p>Buscar: <%= text_field_tag 'search' %> <%= button_tag "Buscar", :id => "search_button" %> <%= button_tag "Guardar busqueda", :id => "search_save_button" %>
 </p>
 
@@ -17,7 +17,166 @@
 	</div>
 
 	<div id="tweets_saved">
-	</div>
+	</div>-->
 
+<!-- Header and Nav -->
+<nav class="top-bar">
+  <div class="row">
+    <div class="large-12 columns">
+        <h1>Tweet Search</h1>
+        <div class="user-info"><%= render partial: "shared/user-header" %></div>
+    </div>
+  </div>
+</nav>
+
+ <!-- End Header and Nav -->
+
+
+<div class="row">
+
+
+
+<!-- Nav Sidebar -->
+ <!-- This is source ordered to be pulled to the left on larger screens -->
+ <div class="large-3 columns ">
+   <div class="panel">
+     <h5>Saved Searches</h5>
+       <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+       <section class="section">
+         <h5 class="title"><a href="#">Section 1</a></h5>
+       </section>
+       <section class="section">
+         <h5 class="title"><a href="#">Section 2</a></h5>
+       </section>
+       <section class="section">
+         <h5 class="title"><a href="#">Section 3</a></h5>
+       </section>
+       <section class="section">
+         <h5 class="title"><a href="#">Section 4</a></h5>
+       </section>
+       <section class="section">
+         <h5 class="title"><a href="#">Section 5</a></h5>
+       </section>
+       <section class="section">
+         <h5 class="title"><a href="#">Section 6</a></h5>
+       </section>
+     </div>
+
+   </div>
+ </div>
+ 
+ <!-- Search -->
+ <div class="large-9 columns">
+    <div class="large-8 columns search-box">
+      <%= text_field_tag 'search', '',:placeholder => 'Search...', :class => 'search' %> 
+      <%= button_tag "Buscar", :id => "search_button", :class => "search-btn" %> 
+    </div>
+      <div class="large-4 columns save-search-box"><%= button_tag "Guardar busqueda", :id => "search_save_button", :class => "save-search" %></div>
+   <%= hidden_field_tag "active_word" %>
+ </div>
+ <!-- End Search -->
+
+ <!-- Main Feed -->
+ <div class="large-5 columns">
+
+   <!-- Feed Entry -->
+   <div class="row">
+     <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]" /></div>
+     <div class="large-10 columns">
+       <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
+       <ul class="inline-list">
+         <li><a href="">Reply</a></li>
+         <li><a href="">Share</a></li>
+       </ul>
+
+
+       <h6>2 Comments</h6>
+       <div class="row">
+         <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]" /></div>
+         <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
+       </div>
+       <div class="row">
+         <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]" /></div>
+         <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
+       </div>
+     </div>
+   </div>
+   <!-- End Feed Entry -->
+
+   <hr />
+
+   <!-- Feed Entry -->
+   <div class="row">
+     <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]" /></div>
+     <div class="large-10 columns">
+       <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
+       <ul class="inline-list">
+         <li><a href="">Reply</a></li>
+         <li><a href="">Share</a></li>
+       </ul>
+     </div>
+   </div>
+   <!-- End Feed Entry -->
+
+   <hr />
+
+   <!-- Feed Entry -->
+   <div class="row">
+     <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]" /></div>
+     <div class="large-10 columns">
+       <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
+       <ul class="inline-list">
+         <li><a href="">Reply</a></li>
+         <li><a href="">Share</a></li>
+       </ul>
+
+
+       <h6>2 Comments</h6>
+       <div class="row">
+         <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]" /></div>
+         <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
+       </div>
+     </div>
+   </div>
+   <!-- End Feed Entry -->
+
+ </div>
+
+ <!-- Right Sidebar -->
+ <div class="large-4 columns">
+   
+   <!-- Feed Entry -->
+   <div class="row">
+     <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]" /></div>
+     <div class="large-10 columns">
+       <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
+       <ul class="inline-list">
+         <li><a href="">Reply</a></li>
+         <li><a href="">Share</a></li>
+       </ul>
+     </div>
+   </div>
+   <!-- End Feed Entry -->
+   
+ </div>
+
+</div>
+
+
+<!-- Footer -->
+
+<footer class="row">
+ <div class="large-12 columns">
+   <hr />
+   <div class="row">
+     <div class="large-5 columns">
+       <p>&copy; Copyright Responsive Labs - 2013</p>
+     </div>
+     <div class="large-7 columns">
+
+     </div>
+   </div>
+ </div>
+</footer>
 
 

@@ -21,11 +21,7 @@
   </head>
 
   <body>
-
-    <% if current_user %>
-      Usuario: <%= current_user.name %> | <%= link_to "Sign Out", signout_path %>
-    <% end %>
-    <% if flash[:notice] == true %><p class="flash-notice"><%= flash[:notice] %></p><% end %>
+    <% if flash[:notice] %><p class="flash-notice"><%= flash[:notice] %></p><% end %>
     <%= yield %>
 
     
