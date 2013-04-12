@@ -15,12 +15,13 @@
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
   
   h1 {
-    color: rgb(137, 96, 167);
+    color: $darkGreen;
     margin-bottom: 9px;
     font-size: 60px;
     text-align: center;
     line-height: 1;
     letter-spacing: -1px;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
   }
   
   .twitter-login-btn {
@@ -30,24 +31,231 @@
     text-align: center;
     margin: 60px auto 0;
     padding: 13px 18px 15px;
-    
-    background-image: none;
-    border-color: #8960a7;
-    background-color: #8960a7;
-    color: #ffffff;
+  	color: $darkGreen;
+  	text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+  	font: {
+  	  size: 18px;
+  	  weight: bold;
+  	}
+    line-height: 20px;
     @include border-radius(6px, 6px);
-    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset;
-    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 -3px 0 rgba(0, 0, 0, 0.13) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset;
+    @include green-button;
     
     i {
       font-size: 20px;
-      margin: 0 0 0 20px;
-      line-height: 20px;
+      margin: 0 0 0 10px;
+//      line-height: 20px;
+      vertical-align: middle;
     }
   }
+}
+
+.top-bar {
+  background: $borderGreen;
+  height: 45px;
+  line-height: 45px;
+  margin: 0 0 30px;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid $black;
+  
+  h1 {
+    display: block;
+    float: left;
+    font-size: 20px;
+    line-height: 45px;
+    margin: 0;
+    color: $white;
+  }
+  
+  .user-info {
+    display: block;
+    width: 160px;
+    float: right;
+    color: $white;
+    
+    a {
+      display: block;
+      float: right;
+      padding: 3px 10px;
+      line-height: 18px;
+      margin-top: 9px;
+      font-size: 13px;
+//      height: 35px;
+      background: $white;
+      color: $darkGreen;
+      @include border-radius(6px, 6px);
+      
+      &:hover {
+        color: $lightGrey;
+      }
+    }
+  }
+}
+
+input[type=text].search {
+	float: left;
+	height: 41px;
+	font-size: 20px;
+	line-height: 24px;
+	-webkit-border-radius: 6px 0 0 6px;
+	-moz-border-radius: 6px 0 0 6px;
+	border-radius: 6px 0 0 6px;
+	border-right: 0;
+	width: 81.3%;
+	margin-bottom: 0;
+}
+
+button[type=submit].search-btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 110px;
+	height: 41px;
+	-webkit-border-radius: 0 6px 6px 0;
+	-moz-border-radius: 0 6px 6px 0;
+	border-radius: 0 6px 6px 0;
+	color: $darkGreen;
+	text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+	font: {
+	  size: 18px;
+	  weight: bold;
+	}
+  line-height: 20px;
+  padding: 2px 4px 5px;
+}
+
+button[type=submit].save-search {
+	width: 240px;
+	height: 41px;
+	@include border-radius(6px, 6px);
+	color: $darkGreen;
+	text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+	font: {
+	  size: 18px;
+	  weight: bold;
+	}
+  line-height: 20px;
+  padding: 2px 4px 5px;
+}
+
+button[type=submit].reply_button {
+	width: 100px;
+	height: 30px;
+	@include border-radius(6px, 6px);
+	color: $darkGreen;
+	text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+	font: {
+	  size: 14px;
+	  weight: bold;
+	}
+  line-height: 20px;
+  padding: 2px 4px 5px;
+  float: right;
+  margin: 0;
+}
+
+.search-btn,
+.save-search,
+.reply_button {
+  @include green-button;
 }
 
 .reply_tweet_input{
   display: none;
 }
+
+.results-header {
+  margin: 0 15px 20px;
+  padding: 0 0 0 20px;
+  background: #f2f2f2;
+  border: 1px solid #d9d9d9;
+  
+  h5 {
+    margin: 0;
+  }
+}
+
+ul.tweets_list {
+  margin: 0;
+  
+  li {
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+    
+    a {
+      display: block;
+      width: 208px;
+      height: 25px;
+      background-color: $white;
+      padding: 0 0 0 10px;
+      @include border-radius(6px, 6px);
+      
+      &:hover {
+        color: $darkGreen;
+        background-color: $outlineGrey;
+      }
+    }
+    
+    a.delete {
+      width: 20px;
+      height: 20px;
+      display: block;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      background: $bgGrey;
+      color: $lightRed;
+      line-height: 18px;
+      padding: 0 0 0 6px;
+      
+      &:hover {
+        color: $wineRed;
+        background: $outlineGrey;
+      }
+    }
+    
+  }
+}
+
+#results,
+#tweets_saved {
+  display: block;
+  overflow: hidden;
+  padding: 0 15px;
+  
+  .tweet {
+    display: block;
+    overflow: hidden;
+    padding: 20px 0 20px 0;
+    border-bottom:  1px solid #d9d9d9;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: #f2f2f2;
+    }
+    
+    small {
+      font-size: 80%;
+      line-height: inherit;
+      color: $lightGrey;
+    }
+    
+    .tweet_text {
+      font-size: 14px;
+      line-height: 18px;
+      color: #333;
+      
+      .inline-list {
+        margin: 0 auto 0 auto;
+        margin-left: -1.375em;
+        margin-right: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+      }
+    }
+  }
+}
+

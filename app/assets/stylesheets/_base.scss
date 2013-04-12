@@ -1,4 +1,6 @@
 @import "compass";
+@import "compass/reset";
+@import "defaults";
 // Required global settings and mixins for Foundation
 @import "foundation/foundation-global";
 
@@ -21,11 +23,33 @@ $body-font-style: normal;
 // $text-direction: ltr;
 
 // We use these as default colors throughout
-$primary-color:   #2ba6cb;
+
+$white:       #ffffff;
+$black:       #000000;
+$lightGrey:   #999999;
+$darkGrey:    #666666;
+$bgGrey:      #eceff4;
+$outlineGrey: #e0e4ea;
+$lightGreen:  #B8E889;
+$linkGreen:   #6C9D3B;
+$borderGreen: #669933;
+$medGreen:    #91BD75;
+$darkGreen:   #336633;
+$lightRed:    #FF5E81;
+$darkRed:     #FF5563;
+$wineRed:     #830000;
+$orange:      #ff7733;
+
+$primary-color:   $borderGreen;
 $secondary-color: #e9e9e9;
 $alert-color:     #c60f13;
 $success-color:   #5da423;
 $white:           #ffffff;
+
+//Shaddows
+
+$buttonShaddow: rgba(0, 0, 0, 0.3) 1px 1px 8px;
+
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -59,9 +83,9 @@ $white:           #ffffff;
 // Grid Variables
 //
 
-// $row-width: 62.5em;
-// $column-gutter: 1.875em;
-// $total-columns: 12;
+$row-width: 70.0em;
+$column-gutter: 1.875em;
+$total-columns: 12;
 
 //
 // Block Grid Variables
@@ -123,9 +147,9 @@ $h6-font-size: 1em;
 // $code-font-weight: bold;
 
 // We use these to style anchors
-// $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: darken($primary-color, 5%);
+$anchor-text-decoration: none;
+$anchor-font-color: $primary-color;
+$anchor-font-color-hover: darken($primary-color, 5%);
 
 // We use these to style the <hr> element
 // $hr-border-width: 1px;

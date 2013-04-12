@@ -1,26 +1,102 @@
-<h1>Busqueda twitter</h1>
-<p>Buscar: <%= text_field_tag 'search' %> <%= button_tag "Buscar", :id => "search_button" %> <%= button_tag "Guardar busqueda", :id => "search_save_button" %>
-</p>
+<!-- Header and Nav -->
+<nav class="top-bar">
+  <div class="row">
+    <div class="large-12 columns">
+        <h1>Tweet Search</h1>
+        <div class="user-info"><%= render partial: "shared/user-header" %></div>
+    </div>
+  </div>
+</nav>
 
-<%= hidden_field_tag "active_word" %>
+ <!-- End Header and Nav -->
 
-<div id="words_saved">
-	<ul class="tweets_list">
-	<% current_user.user_tweets.order('id desc').each do |search_saved| %>
-		<li id="<%= search_saved.id %>">
-			<%= link_to_function search_saved.word, "get_results_by('#{search_saved.word}')" %>
-			<%= link_to_function " x ", "remove_search_saved('#{search_saved.id}')", :class => "delete" %>
-		</li>
-	<% end %>
-	</ul>
+
+<div class="row">
+
+
+
+<!-- Nav Sidebar -->
+ <!-- This is source ordered to be pulled to the left on larger screens -->
+ <div class="large-3 columns ">
+   <div class="panel">
+     <h5>Saved Searches</h5>
+
+       <div id="words_saved">
+       	<ul class="tweets_list">
+       	<% current_user.user_tweets.order('id desc').each do |search_saved| %>
+       		<li id="<%= search_saved.id %>">
+      			<%= link_to_function search_saved.word, "get_results_by('#{search_saved.word}')" %>
+      			<%= link_to_function " x ", "remove_search_saved('#{search_saved.id}')", :class => "delete" %>
+      		</li>
+       	<% end %>
+       	</ul>
+       </div>
+
+   </div>
+ </div>
+ 
+ <!-- Search -->
+ <div class="large-9 columns">
+    <div class="large-8 columns search-box">
+      <%= text_field_tag 'search', '',:placeholder => 'Search...', :class => 'search' %> 
+      <%= button_tag "Buscar", :id => "search_button", :class => "search-btn" %> 
+    </div>
+    <div class="large-4 columns save-search-box"><%= button_tag "Guardar busqueda", :id => "search_save_button", :class => "save-search" %></div>
+    <%= hidden_field_tag "active_word" %>
+ </div>
+ <!-- End Search -->
+
+ <!-- Main Feed -->
+ <div class="large-5 columns">
+
+   <!-- Feed Entry -->
+   <div class="row">
+     
+     <div class="results-header"><h5>Search Results</h5></div>
+     
+     <div id="results">
+       
+   	 </div>
+     
+   </div>
+   <!-- End Feed Entry -->
+
+ </div>
+
+ <!-- Right Sidebar -->
+ <div class="large-4 columns">
+   
+   <!-- Feed Entry -->
+   <div class="row">
+     
+     <div class="results-header"><h5>Saved Tweets</h5></div>
+     
+     <div id="tweets_saved">
+       
+   	 </div>
+     
+   </div>
+   <!-- End Feed Entry -->
+   
+ </div>
+
 </div>
 
 
-	<div id="results">
-	</div>
+<!-- Footer -->
 
-	<div id="tweets_saved">
-	</div>
+<footer class="row">
+ <div class="large-12 columns">
+   <hr />
+   <div class="row">
+     <div class="large-5 columns">
+       <p>&copy; Copyright Search Tweet - 2013</p>
+     </div>
+     <div class="large-7 columns">
 
+     </div>
+   </div>
+ </div>
+</footer>
 
 
