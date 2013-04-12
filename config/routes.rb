@@ -10,6 +10,8 @@ TweetSearch::Application.routes.draw do
   match "/search_tweet/tweet" => "tweet_searches#tweet"
   match "/search_tweet/tweet/delete" => "tweet_searches#delete_tweet"
   match "/search_tweet/tweet/reply" => "tweet_searches#reply_tweet"
+  match "/search_tweet/search/delete" => "tweet_searches#delete_search"
+
   
 
 
