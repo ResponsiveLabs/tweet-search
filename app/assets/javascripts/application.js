@@ -32,7 +32,6 @@ function get_results_by(word){
 	get_saved_tweets_for(word);
 }
 
-
 function save_tweet(tweet_id){
 	active_word = $('input#active_word').val();
 	$.get('/search_tweet/tweet?tweet_id='+tweet_id+'&active_search='+active_word,
@@ -54,7 +53,6 @@ function delete_tweet(tweet_id){
 		}, "json");
 }
 
-
 function get_saved_tweets_for(word){
 	$('#tweets_saved').empty();
 	
@@ -74,7 +72,6 @@ function reply_tweet_show(tweet_id){
 	$('#'+tweet_id + '.reply_tweet_input').slideToggle('fast');
 }
 
-
 function send_reply(tweet_id){
 	active_word = $('input#active_word').val();
 	msg = $('#'+tweet_id+ ' textarea').val();
@@ -86,7 +83,6 @@ function send_reply(tweet_id){
 	
 }
 
-
 function send_reply_from_saved_tweet(dom_id,tweet_id){
 	active_word = $('input#active_word').val();
 	msg = $('#'+dom_id+ ' textarea').val();
@@ -97,7 +93,6 @@ function send_reply_from_saved_tweet(dom_id,tweet_id){
 		}, "json");
 	
 }
-
 
 function get_searches_saved(){
 	$.getJSON('/search_tweet/searches_saved.json', function(data) {
