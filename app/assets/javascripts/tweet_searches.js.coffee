@@ -15,12 +15,12 @@ $ ->
     	)
     	)
 
-    $.get '/search_tweet?word='+word, callback, 'json'
+    $.get '/search_tweet',{word}, callback, 'json'
     get_saved_tweets_for(word);
 
 
   $('#search_save_button').click ->
     word = $('input#search').val()
     $('#words_saved').empty()
-    $.get '/search_tweet/save?word=', {word}, 'json'
+    $.get '/search_tweet/save', {word}, 'json'
 

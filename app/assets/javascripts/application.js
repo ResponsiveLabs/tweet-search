@@ -26,7 +26,7 @@ function get_results_by(word){
 				return $('#results').append("<div class='tweet'><div class='user_image'><img src='" + val["user"]["profile_image_url"] + "'> <strong> " + val["user"]["name"] + "</strong> @" + val["user"]["screen_name"] + "</div>" + "<div class='tweet_text'>" + val['text'] + "<a onclick=reply_tweet_show('"+ val['id_str'] +"');> Reply </a> | <a onclick=save_tweet('" + val['id_str'] + "');> save </a></div><div class='reply_tweet_input' id="+val['id_str']+"><textarea class='reply_textarea' id="+val['id_str'] +">@"+ val["user"]["screen_name"] +"</textarea><button class='reply_button' type='submit' onclick=send_reply('"+val['id_str'] +"');>Responder</button></div></div>");
 			});
 		};
-		return $.get('/search_tweet?word='+word, callback, 'json');
+		$.get('/search_tweet', {word: word}, callback, 'json'); 
 	});
 
 	get_saved_tweets_for(word);
